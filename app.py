@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify
 
-main = Flask(__name__)
+app = Flask(__name__)
 name = 'Mahesh Kumar'
 JOBS = [{
     'id': 1,
@@ -25,12 +25,12 @@ JOBS = [{
 }]
 
 
-@main.route('/')
+@app.route('/')
 def index():
   return render_template('index.html', jobs=JOBS, company_name=name)
 
 
-@main.route('/api/jobs')
+@app.route('/api/jobs')
 def list_jobs():
   return jsonify(JOBS)
 
